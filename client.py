@@ -3,6 +3,13 @@ import requests
 from typing import List, Dict, Union, Optional
 from datetime import datetime
 import logging
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Get variables from .env
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+CHAT_ID = os.getenv('CHAT_ID')
 
 # Configure logging
 logging.basicConfig(
@@ -151,10 +158,7 @@ Change 24h: {token_data.get('change_24h', '0')}%
 if __name__ == "__main__":
     
     # Yes
-    client = TelegramClient("7696457106:AAEUl0u45M7Cm2h6k0lYKft29SDwzCGpQd0")
-    
-    # Example chat ID (replace with actual chat ID)
-    CHAT_ID = "-1002232078476"
+    client = TelegramClient(BOT_TOKEN)
     
     try:
         # Example token alert
